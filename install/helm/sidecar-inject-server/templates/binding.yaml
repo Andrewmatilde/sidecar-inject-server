@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: sidecar-inject-manager-rolebinding
+  labels:
+    app: {{ template "sidecar-inject-server.name" . }}
+    chart: {{ template "sidecar-inject-server.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: sidecar-inject-manager-role
+subjects:
+  - kind: ServiceAccount
+    name: sidecar-inject-manager
+    namespace: {{ .Release.Namespace }}

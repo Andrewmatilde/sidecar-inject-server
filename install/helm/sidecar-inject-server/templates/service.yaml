@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sidecar-injector-webhook-svc
+  labels:
+    app: {{ template "sidecar-inject-server.name" . }}
+    chart: {{ template "sidecar-inject-server.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 443
+      targetPort: https
+      protocol: TCP
+      name: https
+  selector:
+    app: {{ template "sidecar-inject-server.name" . }}
+    release: {{ .Release.Name }}

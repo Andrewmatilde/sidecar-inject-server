@@ -1,0 +1,32 @@
+apiVersion: yisaer.github.io/v1alpha1
+kind: Sidecar
+metadata:
+  name: test-sidecarset
+spec:
+  selector:
+    matchLabels:
+      app: sidecar1
+  containers:
+    - name: sidecar1
+      image: centos:7
+      command: ["sleep", "999d"]
+    - name: sidecar2
+      image: centos:7
+      command: ["sleep", "999d"]
+---
+
+apiVersion: yisaer.github.io/v1alpha1
+kind: Sidecar
+metadata:
+  name: test-sidecarset-2
+spec:
+  selector:
+    matchLabels:
+      app: sidecar2
+  containers:
+    - name: sidecar3
+      image: centos:7
+      command: ["sleep", "999d"]
+    - name: sidecar4
+      image: centos:7
+      command: ["sleep", "999d"]
