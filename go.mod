@@ -30,5 +30,5 @@ require (
 	k8s.io/apimachinery v0.0.0-20180126010752-19e3f5aa3adc
 	k8s.io/apiserver v0.0.0-20180313225939-8e2fdf029740 // indirect
 	k8s.io/kube-openapi v0.0.0-20180216212618-50ae88d24ede // indirect
-	k8s.io/kubernetes v1.9.4
+	k8s.io/kubernetes v1.9.4 // indirect
 )
