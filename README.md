@@ -30,13 +30,14 @@ Label the `namespace` and create a `deployment` to test sidecar-inject-server
 
 ```
 kubectl label namespace sidecar-system sidecar-injector=enabled
-kubectl apply -f example
+kubectl apply -f example/
 ```
 And Here is the result
 ```
-NAME                                                    READY   STATUS    RESTARTS   AGE
-sidecar-server-sidecar-inject-server-6b9dff7dd6-7b5nq   1/1     Running   0          39m
-sleep-85f9fcbcf8-n6vlc                                  5/5     Running   0          33m
+$ kubectl get sidecar
+NAME                CREATED AT
+test-sidecarset     55m
+test-sidecarset-2   55m
 
 $ kubectl get pod
 NAME                                                    READY   STATUS        RESTARTS   AGE
